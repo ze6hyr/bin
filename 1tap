@@ -1,0 +1,2 @@
+#!/bin/sh
+xinput set-prop "SynPS/2 Synaptics Touchpad" "libinput Tapping Enabled" 1

@@ -1,0 +1,29 @@
+#!/bin/sh
+
+# Script to show RAM usage as four bars, with 2.8GB as the full threshold.
+
+# Read total and available RAM in KB from /proc/meminfo
+total=$(awk '/MemTotal:/ {print $2}' /proc/meminfo)
+available=$(awk '/MemAvailable:/ {print $2}' /proc/meminfo)
+
+# Convert total and available to MB, calculate used RAM
+used_mb=$(( (total - available) / 1024 ))
+
+# Define 2.8GB (2800MB) as the max threshold, with each bar representing 700MB
+max_threshold=2800
+bar_threshold=$(( max_threshold / 4 ))
+
+# Initialize the bar display
+bars=""
+
+# Add one bar for each 700MB of usage
+for i in 1 2 3 4; do
+    if [ $used_mb -ge $((i * bar_threshold)) ]; then
+        bars="${bars}█"  # Add a full bar for each increment of 700MB
+    else
+        bars="${bars}▃"  # Add an empty bar if below this level
+    fi
+done
+
+# Output the 4-bar representation
+printf "%s\n" "$bars"

@@ -1,0 +1,29 @@
+#!/bin/sh
+
+# Module showing RAM usage as a bar.
+
+case $BLOCK_BUTTON in
+    2) setsid -f "$TERMINAL" -e htop ;;
+    3) notify-send "📈 RAM usage module" "Single bar represents overall RAM usage.";;
+    6) setsid -f "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac
+
+# Get total and available RAM in KB
+read total available < <(awk '/MemTotal/ {t=$2} /MemAvailable/ {a=$2} END {print t, a}' /proc/meminfo)
+
+# Calculate used RAM percentage
+used_percent=$(( (total - available) * 100 / total ))
+
+# Display bar based on usage
+case $((used_percent / 12)) in
+    "0") printf "▁";;
+    "1") printf "▂";;
+    "2") printf "▃";;
+    "3") printf "▄";;
+    "4") printf "▅";;
+    "5") printf "▆";;
+    "6") printf "▇";;
+    "7") printf "█";;
+    "8") printf "█";;
+esac
+printf "\\n"

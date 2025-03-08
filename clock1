@@ -1,0 +1,6 @@
+#!/bin/sh 
+
+clock=$(date '+%I')
+
+# date "+$icon%I:%M%p | (%a) %d %b %Y "
+date "+$icon%I:%M%p | %a %d %b "

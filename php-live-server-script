@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Start the PHP built-in server
+php -S localhost:8000 -t /home/xami/codofduty/hhhp &
+
+# Start the Node.js WebSocket server
+node /home/xami/php-live-reload/server.js &
+
+# Open Qutebrowser to the PHP file
+qutebrowser "http://localhost:8000/wrapper.php?file=" &
+
+# Optional: Wait for user input to stop the servers
+echo "Press [CTRL+C] to stop the servers..."
+wait

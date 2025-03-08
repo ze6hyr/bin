@@ -1,0 +1,6 @@
+[submodule "pywal"]
+	path = pywal
+	url = https://github.com/aspas072/bin/pywal
+[submodule "tty-clock"]
+	path = tty-clock
+	url = https://github.com/aspas072/bin/tty-clock
