@@ -7,6 +7,5 @@ xwallpaper --zoom $wall
 wal -c
 
 wal -i $wall
-wal -i $wall
-xdotool key super+F5
+
 xdotool key super+F5
