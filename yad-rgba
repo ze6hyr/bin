@@ -1,3 +1,0 @@
-#!/bin/bash
-color=$(yad --color --mode=rgb --alpha)
-echo "$color"
