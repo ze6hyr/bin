@@ -1,7 +1,0 @@
-#!/bin/sh
-
-wall=$(find ~/pix/Anime/wallhaven-5gxvv3.png)
-
-xwallpaper --zoom $wall
-
-
