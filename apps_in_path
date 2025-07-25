@@ -1,0 +1,13 @@
+#!/bin/bash
+APP_NAME=$1
+SITE_URL=$2
+
+nativefier --name "$APP_NAME" "$SITE_URL"
+ln -sf "$HOME/.local/bin/${APP_NAME}-linux-x64/$APP_NAME" "$HOME/apps/$APP_NAME"
+
+#use this script like this 
+
+#thisfilename reddit https://reddit.com
+
+#apps_in_path reddit https://reddit.com
+
